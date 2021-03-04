@@ -1,35 +1,7 @@
 import "./App.css";
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
-
-i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
-  .init({
-    resources: {
-      en: {
-        translation: {
-          "Welcome to React": "Welcome to React and react-i18next",
-          hi: "ff",
-        },
-      },
-      fr: {
-        translation: {
-          "Welcome to React": "Bienvenue à React et react-i18next",
-          "hi": "french",
-        },
-      },
-    },
-    lng: "fr",
-    fallbackLng: "fr",
-
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+import { getTrans as t } from "./Languages/localization";
 
 function App() {
-  const { t } = useTranslation();
-
   return (
     <div className="App">
       <h1>hello React</h1>
@@ -43,9 +15,8 @@ function App() {
       </select>
 
       <div>
-        <h2>{t("Welcome to React")}</h2>
-        <h1>{t("hi")}</h1>
-
+        <h2>{t("one")}</h2>
+        <h1>{t("two")}</h1>
       </div>
     </div>
   );
